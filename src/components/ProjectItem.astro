@@ -1,0 +1,19 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  href: string;
+}
+
+const { name, description, href } = Astro.props;
+---
+
+<li class="not-prose">
+  <a href={href} target="_blank" rel="noopener noreferrer" class="group">
+    <span
+      class="bg-pink-200 px-2 py-1 rounded-sm font-normal group-hover:bg-pink-600 group-hover:text-white"
+      >{name}</span
+    >
+    <span>{description}</span>
+  </a>
+</li>

@@ -1,0 +1,41 @@
+---
+layout: ../layouts/MarkdownLayout.astro
+title: projects
+---
+
+import ProjectItem from '../components/ProjectItem.astro'
+
+# Projects
+
+<p class="max-w-sm">My projects range from web and iOS apps, to devtools and programming languages.</p>
+
+## Highlights
+
+Handpicked projects that I'm particularly proud of.
+
+<ul class="not-prose grid gap-1">
+  <ProjectItem name="Bowtie" description="Score keeping iOS app for card games" href="https://bowtie.cards" />
+  <ProjectItem name="Chronicle" description="Lightweight journaling app where you record highlights of your day" href="https://chronicle.ink/" />
+  <ProjectItem name="Tag Tester" description="Test and edit your websites open graph metadata tags" href="https://tagtester.dev/" />
+  <ProjectItem name="Solis" description="iOS app that shows you the times of sunrise, sunset, and twilight's" href="https://solisapp.xyz/" />
+  <ProjectItem name="Stck" description="Minimal stack based esoteric programming language" href="https://stck.jakerunzer.com/" />
+  <ProjectItem name="Quiztastic" description="Web based multiplayer trivia game" href="https://quiztastic.app/" />
+  <ProjectItem name="LastFM Leaderboards" description="Music leaderboards powered by last.fm" href="https://lastfm.jakerunzer.com/" />
+</ul>
+
+## More
+
+Some smaller projects.
+
+<ul class="not-prose grid gap-1">
+  <ProjectItem name="smol.css" description="Drop in CSS file for clean HTML pages" href="https://smol.jakerunzer.com/" />
+  <ProjectItem name="shortener" description="Dead simple link shortener on my domain" href="https://cheryl.fun/" />
+  <ProjectItem name="favocon" description="Command line utility for creating favicons from any image" href="https://crates.io/crates/favocon" />
+  <ProjectItem name="krill" description="Dynamic, curried, and minimal programming language" href="https://krill.jakerunzer.com/" />
+  <ProjectItem name="count.macro" description="Babel macro for counting number of lines or words in files at compile time" href="https://github.com/coffee-cup/count.macro" />
+  <ProjectItem name="obsidian vault parser" description="Parser for the Obsidian note taking app" href="https://github.com/coffee-cup/obsidian-vault-parser" />
+  <ProjectItem name="theme custom properties" description="NPM package to convert a theme to CSS custom properties" href="https://github.com/coffee-cup/theme-custom-properties" />
+  <ProjectItem name="vraw" description="Small programming language for composing and drawing SVGs" href="https://github.com/coffee-cup/vraw" />
+  <ProjectItem name="cda" description="Command line utility for creating and managing cd aliases." href="https://github.com/coffee-cup/cda" />
+  <ProjectItem name="gradient avatars" description="Generate a gradient profile image based on some text" href="https://avatars.jakerunzer.com/" />
+</ul>

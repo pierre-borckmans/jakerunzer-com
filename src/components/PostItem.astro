@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  href: string;
+}
+
+const { title, date, href } = Astro.props;
+
+import dayjs from "dayjs";
+---
+
+<li class="not-prose">
+  <a href={href} class="group">
+    <span
+      class="bg-gray-100 text-sm px-2 py-1 rounded-sm font-normal group-hover:bg-pink-600 group-hover:text-white"
+      >{dayjs(date).format("MMM D, YYYY")}</span
+    >
+    <span>{title}</span>
+  </a>
+</li>

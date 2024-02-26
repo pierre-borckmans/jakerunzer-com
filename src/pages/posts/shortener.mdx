@@ -1,0 +1,71 @@
+---
+layout: ../../layouts/MarkdownLayout.astro
+title: shortener
+---
+
+# Shortener
+
+I've wanted a custom URL shortener on jakrunzer.com for some time now. Recently
+I went and built a small service that does just that!
+
+Check it out at [cheryl.fun](https://cheryl.fun/)
+
+
+The source code is available at
+[github.com/coffee-cup/shortener](https://github.com/coffee-cup/shortener).
+
+## The Stack
+
+When starting this project, I really wanted to use Rust. I love the language but
+never end up using it for real projects. Not anymore!
+
+I went with [Rocket](https://rocket.rs/) for the webserver. I've heard good
+things and from browsing the docs I liked how it handled state management and
+context throughout different routes.
+
+For the actually shortener itself, I based my implementation off [this blog
+post](https://endler.dev/2017/rust-url-shortener/) but extended it to store the
+mapping between short code and URL in Redis. The actual implementation is fairly
+simple.
+
+```rust
+impl Cache for RedisRepository {
+    fn store(&mut self, url: &str) -> String {
+        let keys: Vec<String> = self.con.keys("*").unwrap();
+        let count = keys.len() as u64;
+        let hashed = self.generator.encode(&[count]);
+
+        let _: () = self.con.set(hashed.clone(), url).unwrap();
+
+        hashed
+    }
+
+    fn lookup(&mut self, id: &str) -> Option<String> {
+        let url: Option<String> = match self.con.get(id) {
+            Ok(val) => Some(val),
+            Err(_e) => None,
+        };
+
+        url
+    }
+}
+```
+## Frontend
+
+Normally my goto for frontend is Nextjs. But lately I've been really enjoying
+using Svelte, especially for smaller projects like this.
+
+I use Rocket static files to serve the public directory on the `/` route and
+then use [Rollup](https://rollupjs.org/) to bundle the Svelte into something
+deployable on the web. [Tailwind](https://tailwindcss.com/docs) is used to
+quickly style the site.
+
+## Deployment
+
+Of course I deployed it to [Railway](https://railway.app). I may be biased, but
+it deploys seamlessly with Redis hosted in the same place.
+
+You can also deploy your own 👇
+
+[![Deploy on
+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Fcoffee-cup%2Fshortener&envs=BASE_URL&BASE_URLDesc=URL+that+the+site+is+hosted+at)
