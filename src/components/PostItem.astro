@@ -7,15 +7,16 @@ interface Props {
 
 const { title, date, href } = Astro.props;
 
-import dayjs from "dayjs";
+import FormattedDate from "./FormattedDate.astro";
 ---
 
-<li class="not-prose">
-  <a href={href} class="group">
-    <span
-      class="bg-gray-100 text-sm px-2 py-1 rounded-sm font-normal group-hover:bg-pink-600 group-hover:text-white"
-      >{dayjs(date).format("MMM D, YYYY")}</span
-    >
-    <span>{title}</span>
+<li class="not-prose flex gap-4 items-center justify-between w-full max-w-lg">
+  <a href={href} class="group font-medium hover:text-pink-600">
+    {title}
   </a>
+
+  <FormattedDate
+    date={date}
+    className="text-gray-400 text-sm font-mono lowercase text-right"
+  />
 </li>
