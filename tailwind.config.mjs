@@ -54,6 +54,12 @@ export default {
             "--tw-prose-body": theme("colors.article"),
             "--tw-prose-code": theme("colors.article"),
             "--tw-prose-links": theme("colors.article"),
+            "--tw-prose-quotes": theme("colors.article"),
+            "--tw-prose-quote-borders": theme("colors.article"),
+
+            "h1, h2, h3": {
+              fontFamily: theme("fontFamily.serif").join(", "),
+            },
 
             code: {
               "&::before": {

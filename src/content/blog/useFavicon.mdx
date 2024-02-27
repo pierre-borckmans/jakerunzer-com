@@ -1,0 +1,46 @@
+---
+title: useFavicon
+date: 2021-02-26
+---
+
+Change your favicon when React components are mounted. 
+
+You can generate favicons from images with [favocon](https://crates.io/crates/favocon).
+
+## Implementation
+
+```ts
+import { useEffect } from "react";
+
+export const favicons = {
+  sparkles: "/favicon.ico",
+  garden: "/seedling.ico",
+  bookmark: "/bookmark.ico",
+  rocket: "/rocket.ico",
+};
+
+export const useFavicon = (name: keyof typeof favicons) => {
+  useEffect(() => {
+    const href = favicons[name];
+
+    const link: HTMLLinkElement =
+      document.querySelector("link[rel*='icon']") ||
+      document.createElement("link");
+
+    link.type = "image/x-icon";
+    link.rel = "shortcut icon";
+    link.href = href;
+
+    document.getElementsByTagName("head")[0].appendChild(link);
+  }, [name]);
+};
+```
+
+## Usage
+
+```ts
+const MyComponent = () => {
+  useFavicon("sparkles");
+  return ( /* ... */ );
+}
+```
