@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import BookmarkItem from "../../components/BookmarkItem.astro";
+
+const blogEntries = await getCollection("bookmarks");
+---
+
+<Layout title="posts">
+  <main class="px-5 md:px-12 py-12 sm:py-24 max-w-5xl mx-auto">
+    <h1 class="text-4xl font-bold font-serif mb-8">Bookmarks</h1>
+    <p class="mt-8 text-article text-base leading-8">
+      Some interesting things I've found on the internet.
+    </p>
+
+    <ul class="grid gap-6 mt-8">
+      {
+        blogEntries
+          .sort((a, b) =>
+            new Date(a.data.date).getTime() < new Date(b.data.date).getTime()
+              ? 1
+              : -1
+          )
+          .map((entry) => (
+            <BookmarkItem
+              title={entry.data.title}
+              date={entry.data.date}
+              url={entry.data.url}
+            />
+          ))
+      }
+    </ul>
+  </main>
+</Layout>

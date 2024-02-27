@@ -10,6 +10,16 @@ const blogCollection = defineCollection({
   }),
 });
 
+const bookmarkCollection = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    url: z.string(),
+    date: z.string(),
+  }),
+});
+
 export const collections = {
   blog: blogCollection,
+  bookmarks: bookmarkCollection,
 };

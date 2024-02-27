@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  date: Date;
+  url: string;
+}
+
+const { title, date, url } = Astro.props;
+
+import FormattedDate from "./FormattedDate.astro";
+---
+
+<li class="grid gap-2 w-full max-w-lg">
+  <div class="grid grid-cols-[auto_auto] gap-4 items-start justify-between">
+    <a
+      href={url}
+      class="min-w-0 font-medium text-article hover:text-pink-500"
+      target="_blank"
+    >
+      {title}
+    </a>
+
+    <FormattedDate
+      date={date}
+      className="min-w-fit text-gray-300 dark:text-gray-700 text-sm font-mono lowercase text-right whitespace-nowrap"
+    />
+  </div>
+
+  <span class="text-sm text-gray-400 font-normal"
+    >{url.replace("https://", "")}</span
+  >
+</li>
