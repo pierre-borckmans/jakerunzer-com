@@ -10,23 +10,19 @@ const { title, date, url } = Astro.props;
 import FormattedDate from "./FormattedDate.astro";
 ---
 
-<li class="grid gap-2 w-full max-w-3xl">
-  <div class="grid grid-cols-[auto_auto] gap-4 items-start justify-between">
-    <a
-      href={url}
-      class="min-w-0 font-medium text-article max-w-lg hover:text-pink-500"
-      target="_blank"
-    >
-      {title}
-    </a>
+<li class="grid md:grid-cols-[1fr_auto] gap-x-3 gap-y-2 w-full max-w-3xl">
+  <a href={url} class="min-w-0 hover:text-pink-500" target="_blank">
+    <div class="grid gap-1 items-start justify-between">
+      <span class="text-article max-w-lg">{title}</span>
 
-    <FormattedDate
-      date={date}
-      className="min-w-fit text-gray-300 dark:text-gray-700 text-sm font-mono lowercase text-right whitespace-nowrap"
-    />
-  </div>
+      <span class="text-sm text-gray-700 dark:text-gray-500 font-normal"
+        >{url.replace("https://", "")}</span
+      >
+    </div>
+  </a>
 
-  <span class="text-sm text-gray-400 font-normal"
-    >{url.replace("https://", "")}</span
-  >
+  <FormattedDate
+    date={date}
+    className="min-w-fit text-gray-300 dark:text-gray-700 text-xs font-mono lowercase md:text-right whitespace-nowrap"
+  />
 </li>

@@ -8,6 +8,7 @@ export default defineConfig({
   integrations: [tailwind(), mdx()],
   prefetch: {
     prefetchAll: true,
+    defaultStrategy: "viewport",
   },
   image: {
     service: squooshImageService(),
