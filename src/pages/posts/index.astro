@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PostItem from "../../components/PostItem.astro";
+
+const blogEntries = await getCollection("blog");
+---
+
+<Layout title="posts">
+  <main class="px-8 md:px-12 py-12 sm:py-24 max-w-5xl mx-auto">
+    <h1 class="text-4xl font-bold font-serif mb-8">Posts</h1>
+    <p class="mt-8 text-article text-base leading-8">
+      I don't write often, but when I do, it's usually about something I'm
+      working on.
+    </p>
+
+    <ul class="grid gap-2 mt-8">
+      {
+        blogEntries
+          .sort((a, b) =>
+            a.data.date.getTime() < b.data.date.getTime() ? 1 : -1
+          )
+          .map((entry) => (
+            <PostItem
+              title={entry.data.title}
+              date={entry.data.date}
+              href={`/posts/${entry.slug}`}
+            />
+          ))
+      }
+    </ul>
+  </main>
+</Layout>

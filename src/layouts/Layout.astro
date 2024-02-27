@@ -1,6 +1,9 @@
 ---
 import Nav from "../components/Nav.astro";
 import { ViewTransitions } from "astro:transitions";
+import "@fontsource-variable/playfair-display";
+import "@fontsource-variable/jetbrains-mono";
+import "../global.css";
 
 interface Props {
   title: string;
@@ -21,7 +24,7 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
 
-  <body>
+  <body class="bg-bg text-fg">
     <Nav />
     <slot />
   </body>

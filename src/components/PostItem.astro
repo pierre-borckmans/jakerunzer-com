@@ -1,7 +1,7 @@
 ---
 interface Props {
   title: string;
-  date: string;
+  date: Date;
   href: string;
 }
 
@@ -11,12 +11,12 @@ import FormattedDate from "./FormattedDate.astro";
 ---
 
 <li class="not-prose flex gap-4 items-center justify-between w-full max-w-lg">
-  <a href={href} class="group font-medium hover:text-pink-600">
+  <a href={href} class="group font-medium hover:text-pink-500">
     {title}
   </a>
 
   <FormattedDate
     date={date}
-    className="text-gray-400 text-sm font-mono lowercase text-right"
+    className="text-gray-300 dark:text-gray-700 text-sm font-mono lowercase text-right"
   />
 </li>

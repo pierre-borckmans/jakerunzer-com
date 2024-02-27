@@ -1,6 +1,6 @@
 ---
 interface Props {
-  date: string;
+  date: string | Date;
   className?: string;
 }
 
@@ -9,6 +9,6 @@ const { date, className } = Astro.props;
 import dayjs from "dayjs";
 ---
 
-<time datetime={date} class={className}
+<time datetime={date.toString()} class={className}
   >{dayjs(date).format("D MMMM YYYY")}</time
 >

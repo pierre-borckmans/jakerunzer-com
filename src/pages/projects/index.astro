@@ -1,0 +1,121 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProjectItem from "../../components/ProjectItem.astro";
+---
+
+<Layout title="posts">
+  <main class="px-8 md:px-12 py-12 sm:py-24 max-w-5xl mx-auto">
+    <header>
+      <h1 class="text-4xl font-bold font-serif mb-8">Projects</h1>
+      <p class="max-w-sm text-article leading-8">
+        My projects range from web and iOS apps, to devtools and programming
+        languages.
+      </p>
+    </header>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-medium font-serif mb-4">Highlights</h2>
+
+      <p class="text-article">
+        Handpicked projects that I'm particularly proud of.
+      </p>
+
+      <ul class="grid gap-2 mt-6">
+        <ProjectItem
+          name="Bowtie"
+          description="Score keeping iOS app for card games"
+          href="https://bowtie.cards"
+        />
+        <ProjectItem
+          name="Chronicle"
+          description="Lightweight journaling app where you record highlights of your day"
+          href="https://chronicle.ink/"
+        />
+        <ProjectItem
+          name="Tag Tester"
+          description="Test and edit your websites open graph metadata tags"
+          href="https://tagtester.dev/"
+        />
+        <ProjectItem
+          name="Solis"
+          description="iOS app that shows you the times of sunrise, sunset, and twilight's"
+          href="https://solisapp.xyz/"
+        />
+        <ProjectItem
+          name="Stck"
+          description="Minimal stack based esoteric programming language"
+          href="https://stck.jakerunzer.com/"
+        />
+        <ProjectItem
+          name="Quiztastic"
+          description="Web based multiplayer trivia game"
+          href="https://quiztastic.app/"
+        />
+        <ProjectItem
+          name="LastFM Leaderboards"
+          description="Music leaderboards powered by last.fm"
+          href="https://lastfm.jakerunzer.com/"
+        />
+      </ul>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-medium font-serif mb-4">More</h2>
+
+      <p class="text-article">Some smaller projects.</p>
+
+      <ul class="grid gap-2 mt-6">
+        <ProjectItem
+          name="smol.css"
+          description="Drop in CSS file for clean HTML pages"
+          href="https://smol.jakerunzer.com/"
+        />
+        <ProjectItem
+          name="shortener"
+          description="Dead simple link shortener on my domain"
+          href="https://cheryl.fun/"
+        />
+        <ProjectItem
+          name="favocon"
+          description="Command line utility for creating favicons from any image"
+          href="https://crates.io/crates/favocon"
+        />
+        <ProjectItem
+          name="krill"
+          description="Dynamic, curried, and minimal programming language"
+          href="https://krill.jakerunzer.com/"
+        />
+        <ProjectItem
+          name="count.macro"
+          description="Babel macro for counting number of lines or words in files at compile time"
+          href="https://github.com/coffee-cup/count.macro"
+        />
+        <ProjectItem
+          name="obsidian vault parser"
+          description="Parser for the Obsidian note taking app"
+          href="https://github.com/coffee-cup/obsidian-vault-parser"
+        />
+        <ProjectItem
+          name="theme custom properties"
+          description="NPM package to convert a theme to CSS custom properties"
+          href="https://github.com/coffee-cup/theme-custom-properties"
+        />
+        <ProjectItem
+          name="vraw"
+          description="Small programming language for composing and drawing SVGs"
+          href="https://github.com/coffee-cup/vraw"
+        />
+        <ProjectItem
+          name="cda"
+          description="Command line utility for creating and managing cd aliases."
+          href="https://github.com/coffee-cup/cda"
+        />
+        <ProjectItem
+          name="gradient avatars"
+          description="Generate a gradient profile image based on some text"
+          href="https://avatars.jakerunzer.com/"
+        />
+      </ul>
+    </section>
+  </main>
+</Layout>

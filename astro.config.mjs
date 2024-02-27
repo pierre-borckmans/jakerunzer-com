@@ -5,8 +5,16 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
+  integrations: [tailwind(), mdx()],
   prefetch: {
     prefetchAll: true,
   },
-  integrations: [tailwind(), mdx()],
+  markdown: {
+    shikiConfig: {
+      experimentalThemes: {
+        light: "rose-pine-dawn",
+        dark: "rose-pine-moon",
+      },
+    },
+  },
 });

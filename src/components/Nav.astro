@@ -2,33 +2,43 @@
 interface Props {}
 
 const {} = Astro.props;
+
+import ThemeIcon from "./ThemeIcon.astro";
 ---
 
 <nav
   class="flex flex-col items-start gap-6 xs:gap-0 xs:flex-row xs:items-center xs:justify-between px-8 md:px-12 py-6 max-w-5xl mx-auto"
 >
-  <a href="/" aria-label="Home page"
-    ><div class="bg-pink-600 rounded-full w-6 h-6"></div></a
-  >
-
-  <ul
-    class="flex gap-6 items-center justify-end font-medium text-gray-700 text-sm"
-  >
+  <ul class="flex gap-6 items-center justify-end font-medium text-sm">
     <li>
-      <a href="/projects" class="hover:underline hover:text-pink-600"
+      <a
+        href="/"
+        class="text-fg opacity-50 hover:text-pink-600 hover:opacity-100">home</a
+      >
+    </li>
+
+    <li>
+      <a
+        href="/projects"
+        class="text-fg opacity-50 hover:text-pink-600 hover:opacity-100"
         >projects</a
       >
     </li>
     <li>
-      <a href="/posts" class="hover:underline hover:text-pink-600">posts</a>
-    </li>
-    <li>
-      <a href="/bookmarks" class="hover:underline hover:text-pink-600"
-        >bookmarks</a
+      <a
+        href="/posts"
+        class="text-fg opacity-50 hover:text-pink-600 hover:opacity-100"
+        >posts</a
       >
     </li>
     <li>
-      <a href="/photos" class="hover:underline hover:text-pink-600">photos</a>
+      <a
+        href="/bookmarks"
+        class="text-fg opacity-50 hover:text-pink-600 hover:opacity-100"
+        >bookmarks</a
+      >
     </li>
   </ul>
+
+  <ThemeIcon />
 </nav>
