@@ -1,11 +1,12 @@
 import * as cheerio from "cheerio";
 import slugify from "slugify";
 import fs from "fs";
+import path from "path";
 
 const url = process.argv[2];
 const date = process.argv[3];
 
-const BASE_PATH = "./src/content/bookmarks";
+const BASE_PATH = path.join(__dirname, "../src/content/bookmarks");
 
 const go = async () => {
   const data = await fetch(url).then((res) => res.text());
