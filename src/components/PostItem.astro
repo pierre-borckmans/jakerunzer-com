@@ -10,13 +10,18 @@ const { title, date, href } = Astro.props;
 import FormattedDate from "./FormattedDate.astro";
 ---
 
-<li class="not-prose flex gap-4 items-center justify-between w-full max-w-lg">
-  <a href={href} class="group font-medium hover:text-pink-500">
+<li
+  class="not-prose grid grid-cols-[auto_auto] gap-4 items-center justify-between w-full max-w-lg"
+>
+  <a
+    href={href}
+    class="min-w-0 overflow-hidden font-medium whitespace-nowrap overflow-ellipsis hover:text-pink-500"
+  >
     {title}
   </a>
 
   <FormattedDate
     date={date}
-    className="text-gray-300 dark:text-gray-700 text-sm font-mono lowercase text-right"
+    className="min-w-fit text-gray-300 dark:text-gray-700 text-sm font-mono lowercase text-right whitespace-nowrap"
   />
 </li>
