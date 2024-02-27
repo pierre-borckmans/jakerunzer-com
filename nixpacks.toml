@@ -6,6 +6,9 @@ NPM_CONFIG_UPDATE_NOTIFIER = 'false' # the update notification is relatively use
 NPM_CONFIG_FUND = 'false'            # the fund notification is also pretty useless in a production environment
 CADDY_VERSION = '2.7.6'              # specify the caddy version to use here, without a 'v' prefix. https://github.com/caddyserver/caddy/releases
 
+[phases.setup]
+nixpkgsArchive = "e7f5b2c943c6e2031f705af4cf93ae9ce50a1913"
+
 # download and untar caddy
 [phases.caddy]
 dependsOn = [
