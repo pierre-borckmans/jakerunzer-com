@@ -14,11 +14,15 @@ const go = async () => {
   const title = $("title").text();
 
   const fileName = `${BASE_PATH}/${slugify(title, { lower: true })}.json`;
-  const contents = JSON.stringify({
-    url,
-    title,
-    date: date ?? new Date(),
-  });
+  const contents = JSON.stringify(
+    {
+      url,
+      title,
+      date: date ?? new Date(),
+    },
+    null,
+    2
+  );
 
   fs.writeFileSync(fileName, contents);
 };
