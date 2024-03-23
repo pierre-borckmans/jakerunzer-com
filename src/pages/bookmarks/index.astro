@@ -6,7 +6,10 @@ import BookmarkItem from "../../components/BookmarkItem.astro";
 const blogEntries = await getCollection("bookmarks");
 ---
 
-<Layout title="bookmarks | jr">
+<Layout
+  title="bookmarks | jr"
+  description="A collection of useful links I've saved."
+>
   <main class="px-5 md:px-12 py-12 sm:py-24 max-w-5xl mx-auto">
     <h1 class="text-4xl font-bold font-serif mb-8">Bookmarks</h1>
     <p class="mt-8 text-article text-base leading-8">

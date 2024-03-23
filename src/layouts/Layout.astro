@@ -13,13 +13,14 @@ interface Props {
 }
 
 const { title, description, image, date } = Astro.props;
+
+const defaultDescription = "frontend focused software engineer";
 ---
 
 <!doctype html>
 <html lang="en" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 
@@ -28,12 +29,11 @@ const { title, description, image, date } = Astro.props;
     <meta name="color-scheme" content="dark light" />
     <meta name="robots" content="index, max-image-preview:large" />
 
-    {description != null && <meta name="description" content={description} />}
-    {
-      description != null && (
-        <meta property="og:description" content={description} />
-      )
-    }
+    <meta name="description" content={description ?? defaultDescription} />
+    <meta
+      property="og:description"
+      content={description ?? defaultDescription}
+    />
 
     {
       date != null && (
