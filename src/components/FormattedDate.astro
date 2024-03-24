@@ -9,6 +9,6 @@ const { date, className } = Astro.props;
 import dayjs from "dayjs";
 ---
 
-<time datetime={date.toString()} class={className}
+<time datetime={date.toString()} class={`lowercase ${className}`}
   >{dayjs(date).format("D MMMM YYYY")}</time
 >
